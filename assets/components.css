@@ -1,0 +1,167 @@
+/* ---------- Footer ---------- */
+.site-footer {
+  font-size: 14px;
+  color: var(--muted);
+  background: var(--surface);
+  border-top: 2px solid var(--ink);
+}
+
+.site-footer a {
+  color: var(--ink);
+}
+
+.site-footer a:hover {
+  color: var(--red);
+}
+
+.footer-heart {
+  color: var(--red);
+}
+
+/* ---------- Tombol kembali ke atas ---------- */
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  color: var(--paper);
+  text-decoration: none;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, background 0.15s, border-color 0.15s, visibility 0.2s;
+  border-radius: 10px;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  color: var(--on-red);
+  background: var(--red);
+  border-color: var(--red);
+}
+
+/* ---------- Modal ---------- */
+.modal-content {
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.modal-backdrop.show {
+  opacity: 0.8;
+}
+
+.btn-close {
+  border-radius: 0;
+}
+
+.btn-close:focus {
+  box-shadow: var(--ring);
+}
+
+[data-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(1);
+}
+
+/* ---------- Alert form (status chip) ---------- */
+.alert {
+  font-size: 14px;
+  border: 2px solid;
+  border-radius: 0;
+}
+
+.alert-success {
+  color: #16a34a;
+  background: #f0fdf4;
+  border-color: #16a34a;
+}
+
+.alert-danger {
+  color: var(--red);
+  background: #fef2f2;
+  border-color: var(--red);
+}
+
+[data-theme="dark"] .alert-success {
+  background: rgba(22, 163, 74, 0.12);
+}
+
+[data-theme="dark"] .alert-danger {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+/* ---------- Responsif & aksesibilitas ---------- */
+@media (max-width: 991.98px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-heading .section-title {
+    max-width: none;
+  }
+
+  .projects-layout,
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section-heading .section-title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .hero {
+    padding: 7rem 0 3rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero-item {
+    opacity: 1;
+  }
+}

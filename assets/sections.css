@@ -1,0 +1,392 @@
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 9rem 0 5rem;
+  border-bottom: 2px solid var(--ink);
+  /* Foto latar + lapisan hitam rata (tanpa gradien) agar teks tetap terbaca */
+  background:
+    linear-gradient(rgba(10, 10, 10, 0.72), rgba(10, 10, 10, 0.72)),
+    url("../img/background/japaneese.jpg") center 35% / cover no-repeat;
+}
+
+/* Di atas foto, isi hero memakai warna terbalik (putih di atas hitam) */
+.hero > .container {
+  --ink: #fafafa;
+  --ink-press: #d4d4d4;
+  --paper: #0a0a0a;
+  --muted: #d4d4d4;
+  color: var(--ink);
+}
+
+.hero-title {
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.hero .lead {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.hero-text {
+  max-width: 34rem;
+  color: var(--muted);
+}
+
+@media (max-width: 991.98px) {
+  .hero-text {
+    margin-inline: auto;
+  }
+}
+
+.hero-photo {
+  width: min(100%, 22rem);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 2px solid var(--ink);
+}
+
+/* Satu urutan animasi saat halaman dibuka */
+.hero-item {
+  opacity: 0;
+  animation: rise 0.7s ease-out forwards;
+}
+
+.hero-item:nth-child(1) { animation-delay: 0.1s; }
+.hero-item:nth-child(2) { animation-delay: 0.2s; }
+.hero-item:nth-child(3) { animation-delay: 0.3s; }
+.hero-item:nth-child(4) { animation-delay: 0.4s; }
+.hero-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Section ---------- */
+.section {
+  padding: 6rem 0;
+  scroll-margin-top: 4rem;
+}
+
+#about {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.about-heading .section-title {
+  max-width: 18rem;
+  margin-top: 0.75rem;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.about-content {
+  max-width: 44rem;
+}
+
+.about-copy p {
+  margin-bottom: 1.25rem;
+  font-size: clamp(1rem, 1.15vw, 1.125rem);
+  line-height: 1.75;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+#projects,
+#contact {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+}
+
+.projects-layout,
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.55fr) minmax(0, 1.45fr);
+  align-items: start;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.section-heading .section-title {
+  max-width: 18rem;
+  margin-top: 0.75rem;
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
+}
+
+.section-alt {
+  background: var(--surface);
+  border-block: 2px solid var(--ink);
+}
+
+.section-title {
+  display: block;
+  padding-bottom: 1rem;
+  font-size: clamp(1.75rem, 4vw, 2.375rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+
+#about .about-copy p {
+  margin-inline: auto;
+  max-width: 52rem;
+  font-size: 1.125rem;
+}
+
+/* ---------- Skill badge (chip) ---------- */
+.skill-badge {
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 2px solid var(--ink);
+}
+
+.skill-badge i {
+  margin-right: 0.35rem;
+}
+
+/* ---------- Filter project (filter chip) ---------- */
+.btn-filter {
+  padding: 4px 14px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: transparent;
+  border-color: var(--line-md);
+}
+
+.btn-filter:hover,
+.btn-filter:focus {
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--ink);
+}
+
+.btn-filter.active,
+.btn-filter.active:hover {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ---------- Kartu project (card default) ---------- */
+.project-card {
+  padding: 0;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.project-card:hover {
+  border-color: var(--ink);
+}
+
+.project-card .card-img-top {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 0;
+  border-bottom: 2px solid var(--line);
+  transition: border-color 0.15s;
+}
+
+.project-card:hover .card-img-top {
+  border-bottom-color: var(--ink);
+}
+
+.project-card .card-body {
+  display: block;
+  padding: 1.5rem;
+}
+
+.project-card .card-text {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.project-tag {
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 2px solid var(--ink);
+}
+
+/* ---------- Kontak ---------- */
+.social-card {
+  position: relative;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  overflow: hidden;
+  background: var(--surface);
+  border: 2px solid var(--ink);
+}
+
+.social-card-title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.social-card-title span {
+  color: var(--muted);
+}
+
+.social-card-copy {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+}
+
+.social-links {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+  padding: 0.7rem 0.8rem;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--paper);
+  border: 2px solid var(--line-md);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.social-link:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+  transform: translateX(4px);
+}
+
+.social-link-icon {
+  display: grid;
+  flex: 0 0 2.5rem;
+  place-items: center;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.social-link-label {
+  display: grid;
+  flex: 1;
+  line-height: 1.35;
+}
+
+.social-link-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.social-link-handle {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.social-link-arrow {
+  color: var(--muted);
+  transition: color 0.15s, transform 0.15s;
+}
+
+.social-link:hover .social-link-arrow {
+  color: var(--red);
+  transform: translate(2px, -2px);
+}
+
+.contact-form {
+  padding: 2rem;
+  background: var(--paper);
+  border: 2px solid var(--line);
+}
+
+.form-label {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.form-label i {
+  margin-right: 0.3rem;
+}
+
+.form-control {
+  min-height: 44px;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--line-md);
+  border-radius: 0;
+}
+
+.form-control::placeholder {
+  color: #a3a3a3;
+  opacity: 1;
+}
+
+.form-control:focus {
+  color: var(--ink);
+  background: var(--paper);
+  border-color: var(--ink);
+  box-shadow: var(--ring);
+}
+
+.was-validated .form-control:valid,
+.was-validated .form-control:valid:focus {
+  border-color: #16a34a;
+}
+
+.was-validated .form-control:invalid,
+.was-validated .form-control:invalid:focus {
+  border-color: var(--red);
+}
+
+.invalid-feedback {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--red);
+}
